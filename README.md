@@ -3,48 +3,48 @@ Analysis and Visualization Melbourne Housing Dataset
 
 **Context**
 
-Sebuah perusahaan real estate memiliki data penjualan dari tahun 2016-2018, perusahaan ingin memiliki pengetahuan tentang penyebaran rumah-rumah berdasarkan tipe dan lokasinya. Jadi ketika seorang customer datang ingin membeli rumah dengan keinginan tertentu, agent real estate bisa mengetahui rumah mana yang cocok untuk customer tersebut
+A real estate company has sales data from 2016-2018, the company wants to have knowledge about the distribution of houses by type and location. So when a customer comes to buy a house with a certain desire, the real estate agent can find out which house is suitable for that customer
 
 
 **Goals**
 
-Perusahaan ingin memiliki kemampuan untuk memberikan rekomendasi rumah yang cocok untuk tiap customer nya, sehingga dapat meningkatkan penjualan melalui perusahaan tersebut
+The company wants to have the ability to provide recommendations for suitable homes for each of its customers, so that it can increase sales through the company
 
 **Analytic Approach**
 
-Jadi kita melakukan uji statistik dengan bantuan visualisasi agar proses dari analysis lebih mudah di interpretasikan
+So we do statistical tests with the help of visualization so that the process of analysis is easier to interpret
 
 **Data Understanding**
 
-Ini adalah kumpulan data yang dibuat oleh Tony Pino.
+This is a dataset created by Tony Pino.
 
-Itu diambil dari hasil yang tersedia untuk umum yang diposting setiap minggu dari Domain.com.au. Dia membersihkannya dengan baik, dan sekarang terserah Anda untuk membuat keajaiban analisis data. Dataset tersebut meliputi Alamat, Jenis Properti, Pinggiran Kota, Cara Penjualan, Kamar, Harga, Agen Real Estate, Tanggal Penjualan dan Jarak dari C.B.D.
+It is drawn from publicly available results posted weekly from Domain.com.au. He cleaned it up nicely, and now it's up to you to work the data analysis magic. The dataset includes Address, Property Type, Suburbs, Method of Sale, Room, Price, Real Estate Agent, Date of Sale and Distance from C.B.D.
 
 https://www.kaggle.com/datasets/dansbecker/melbourne-housing-snapshot
 
 # Data Cleaning
 
-kolom-kolom yang di drop:
-* Bedroom 2 : isi dari data ini sama dengan di kolom Rooms, jadi kita menggunakan salah satu nya saja
-* YearBuilt : di drop karena memiliki missing value yang cukup banyak dan tidak bisa di iisi berdassarkan domain knowledge
-* Propertycount : tidak ada penjelasan tentang kolom ini pada kaggle, lebih baik di drop karena tidak digunakan juga untuk analisa
-* Address : karena analysis ini bukan tentang customer profile jadi kita drop karena tidak digunakan untuk analysis ini
+Dropped columns:
+* Bedroom 2: the contents of this data are the same as in the Rooms column, so we only use one of them
+* YearBuilt: dropped because it has quite a lot of missing values ​​and cannot be filled in based on domain knowledge
+* Propertycount : there is no explanation about this column on kaggle, it is better to drop it because it is not used for analysis too
+* Address: because this analysis is not about the customer profile, so we drop it because it is not used for this analysis
 
-Handling missing Value :
-* Missing value pada kolom diisi menggunakan median dari kolom tersebut
-* councilArea diisi dengan 'NC' untuk menandakan bahwa row tersebut missing value
-* Building Area diisi menggunakan KNN Imputer
+Handling missing values ​​:
+* Missing value in the column is filled using the median of the column
+* councilArea is filled with 'NC' to indicate that the row is missing value
+* Building Area is filled using KNN Imputer
 
 # Summary
 
-Dari keseluruhan analysis dapat di simpulkan bahwa hal yang sangat mempengaruhi harga rumah adalah Region nya. Hal tersebut tentu masuk akal karena region metropolitan berada di dekat CBD (central business district), fasilitas yang tersedia di dekat CBD pasti lebih baik dibanding fasilitas di daerah yang jauh dari CBD. Tipe rumah juga sangat mempengaruhi harga jual sedangkan waktu, luas tanah dan bangunan, dan jumlah ruangan jika berdasarkan hasil korelasi nya memiliki pengaruh yang sedang saja atau tidak terlalu besar.
+From the overall analysis, it can be concluded that the thing that greatly affects house prices is the region. This certainly makes sense because the metropolitan region is near the CBD (central business district), the facilities available near the CBD are definitely better than facilities in areas far from the CBD. The type of house also greatly affects the selling price while the time, area of ​​land and buildings, and the number of rooms if based on the results of the correlation have a moderate or not too large effect.
 
-Dapat di **rekomendasikan** untuk calon pembeli rumah di kota melbourne :
+Can be **recommended** for potential home buyers in the city of melbourne:
 
-* Jika ingin membeli rumah di dekat CBD bisa membeli di Northern Metropolitan. Di region ini ketersediaan rumah, townhouse dan duplex nya cukup banyak, harganya pun lebih rendah dibanding  Western dan Southern Metropolitan. Mungkin karena rata-rata luas bangunan nya lebih kecil di banding rata-rata luas bangunan di western dan southern metropolitan.
+* If you want to buy a house near the CBD, you can buy it at Northern Metropolitan. In this region, the availability of houses, townhouses and duplexes is quite a lot, the prices are also lower than Western and Southern Metropolitan. Maybe because the average building area is smaller than the average building area in western and southern metropolitan areas.
 
-* Jika ingin membeli rumah yang termurah, bisa membeli rumah di western victoria. anda dapat membeli rumah dengan luas tanah yang cukup besar dengan harga yang cukup terjangkau, lebih murah di bandingkan harga unit di seluruh region metropolitan. Tetapi untuk membeli rumah disini berarti anda membeli rumah yang jaraknya cukup jauh dari CBD
+* If you want to buy the cheapest house, you can buy a house in western victoria. you can buy a house with a large enough land area at a fairly affordable price, cheaper than unit prices in the entire metropolitan region. But to buy a house here means you buy a house that is quite far from the CBD
 
-* Jika ingin membeli rumah yang Termahal, bisa membeli rumah di daerah Southern Metropolitan. bahkan harga 1 duplex disini setara dengan membeli 3 rumah di western victoria. harus dianalisa lebih lanjut diluar data ini mengapa rumah di southern metropolitan sangat mahal.
+* If you want to buy the most expensive house, you can buy a house in the Southern Metropolitan area. even the price of 1 duplex here is equivalent to buying 3 houses in western victoria. It should be further analyzed beyond this data why homes in the southern metropolitan are so expensive.
 
-* Jika ingin membeli rumah yang jauh dari keramaian atu jauh dari CBD anda dapat membeli rumah di eastern victoria. dengan mengeluarkan uang yang sama besar dengan membeli rumah Townhouse di  Northern Metropolitan(terdekat ke CBD), anda bisa membeli rumah dengan luas tanah mencapai 3000
+* If you want to buy a house that is far from the crowds or far from the CBD, you can buy a house in Eastern Victoria. by spending the same amount of money as buying a Townhouse house in the Northern Metropolitan(nearest to the CBD), you can buy a house with a land area of ​​up to 3000
